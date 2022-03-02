@@ -119,7 +119,7 @@ def overlayPNG(imgBack, imgFront, pos=[0, 0]):
     *_, mask = cv2.split(imgFront)
     maskBGRA = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGRA)
     maskBGR = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
-    imgRGBA = cv2.bitwise_and(imgFront, maskBGRA)
+    imgRGBA = cv2.bitwise_and(imgFront, imgFront, maskBGRA)
     imgRGB = cv2.cvtColor(imgRGBA, cv2.COLOR_BGRA2BGR)
 
     imgMaskFull = np.zeros((hb, wb, cb), np.uint8)
